@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import GradientBlinds from "@/components/GradientBlinds"
 import Navbar from "@/components/Navbar"
 import Icon from "@/components/ui/icon"
@@ -89,9 +90,10 @@ const Index = () => {
           </div>
           <div className="flex flex-col gap-3">
             {matches.map((match, i) => (
-              <div
+              <Link
+                to={`/match/${i + 1}`}
                 key={i}
-                className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm px-6 py-4 hover:bg-white/10 transition-all"
+                className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm px-6 py-4 hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer"
               >
                 <div className="flex items-center gap-4 min-w-[110px]">
                   {match.live ? (
@@ -114,7 +116,7 @@ const Index = () => {
                 <div className="min-w-[120px] text-right">
                   <span className="text-xs text-white/40 bg-white/10 rounded-full px-3 py-1">{match.tournament}</span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
